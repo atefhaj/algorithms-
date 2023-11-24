@@ -1,20 +1,22 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>صفحة التسجيل</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Google Sign-In Example</title>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
 </head>
 <body>
-  <div class="container">
-    <form id="signup-form">
-      <h2>إنشاء حساب جديد</h2>
-      <input type="text" id="username" placeholder="اسم المستخدم" required>
-      <input type="email" id="email" placeholder="البريد الإلكتروني" required>
-      <input type="password" id="password" placeholder="كلمة المرور" required>
-      <button type="submit">إنشاء الحساب</button>
-    </form>
-  </div>
+  <div class="g-signin2" data-onsuccess="onSignIn"></div>
+  
+  <script>
+    function onSignIn(googleUser) {
+      var profile = googleUser.getBasicProfile();
+      console.log('ID: ' + profile.getId());
+      console.log('Name: ' + profile.getName());
+      console.log('Image URL: ' + profile.getImageUrl());
+      console.log('Email: ' + profile.getEmail());
+    }
+  </script>
 </body>
 </html>
