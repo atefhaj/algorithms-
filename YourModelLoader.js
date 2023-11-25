@@ -15,8 +15,7 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-// تحديث موضع المكعب بواسطة اللمس
- اللمس
+// تحريك المكعب في الاتجاهات الرأسية والأفقية بواسطة اللمس
 let previousTouchX = 0;
 let previousTouchY = 0;
 let isDragging = false;
@@ -49,3 +48,10 @@ renderer.domElement.addEventListener('touchmove', function (event) {
 renderer.domElement.addEventListener('touchend', function (event) {
   isDragging = false;
 }, false);
+
+// دورة التحديث للرسم
+function animate() {
+  requestAnimationFrame(animate);
+  renderer.render(scene, camera);
+}
+animate();
