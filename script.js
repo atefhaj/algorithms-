@@ -7,7 +7,7 @@ camera.position.z = 5;
 // إنشاء المشهد (يمكن استبدال "your_model.obj" بمسار الملف الخاص بك)
 const loader = new THREE.OBJLoader();
 loader.load(
-  'your_model.obj',
+  'cottage_obj.obj',
   function (object) {
     scene.add(object);
   }
