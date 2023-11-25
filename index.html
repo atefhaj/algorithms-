@@ -1,16 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
-  <meta charset="UTF-8">
-  <title>Display 3D Model</title>
-  <style>
-    body { margin: 0; }
-    canvas { display: block; }
-  </style>
+    <meta charset="UTF-8">
+    <title>صفحة تسجيل الدخول</title>
+    <style>
+        /* أسلوب CSS هنا */
+    </style>
 </head>
 <body>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="YourModelLoader.js"></script>
+    <form action="/login" method="post">
+        <h2>تسجيل الدخول</h2>
+        <input type="text" id="username" name="username" placeholder="اسم المستخدم" required>
+        <input type="password" id="password" name="password" placeholder="كلمة المرور" required>
+        <input type="submit" id="loginButton" value="تسجيل الدخول">
+    </form>
 </body>
 </html>
