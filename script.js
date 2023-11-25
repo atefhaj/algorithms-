@@ -1,28 +1,26 @@
-document.getElementById('signup-form').addEventListener('submit', function(event) {
-  event.preventDefault();
-  
-  // Get input values
-  var username = document.getElementById('username').value.trim();
-  var email = document.getElementById('email').value.trim();
-  var password = document.getElementById('password').value.trim();
-  
-  // Simple email validation
-  var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(email)) {
-    alert('البريد الإلكتروني غير صالح');
-    return;
-  }
-  
-  // Simple password length check
-  if (password.length < 6) {
-    alert('يجب أن تكون كلمة المرور على الأقل 6 أحرف');
-    return;
-  }
+const scene = new THREE.Scene();
 
-  // إضافة المزيد من الكود هنا للتعامل مع بيانات الاشتراك بشكل أوسع
-  // يمكن استخدام طرق أكثر أماناً لتخزين كلمات المرور والتحقق من البريد الإلكتروني
-  
-  // إرسال البيانات للسيرفر أو معالجتها بشكل أخر
+// إنشاء الكاميرا
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+camera.position.z = 5;
 
-  // إعادة توجيه المستخدم إلى صفحة تسجيل الدخول أو أي صفحة أخرى بناءً على الحاجة
-});
+// إنشاء المشهد (يمكن استبدال "your_model.obj" بمسار الملف الخاص بك)
+const loader = new THREE.OBJLoader();
+loader.load(
+  'your_model.obj',
+  function (object) {
+    scene.add(object);
+  }
+);
+
+// إنشاء المُظهر (renderer)
+const renderer = new THREE.WebGLRenderer();
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement);
+
+// دورة التحديث للرسم
+function animate() {
+  requestAnimationFrame(animate);
+  renderer.render(scene, camera);
+}
+animate();
