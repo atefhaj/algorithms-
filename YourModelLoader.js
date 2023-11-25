@@ -1,18 +1,14 @@
-
 const scene = new THREE.Scene();
 
 // إنشاء الكاميرا
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 camera.position.z = 5;
 
-// إنشاء المشهد (يمكن استبدال "your_model.obj" بمسار الملف الخاص بك)
-const loader = new THREE.OBJLoader();
-loader.load(
-  'cottage_obj.obj',
-  function (object) {
-    scene.add(object);
-  }
-);
+// إنشاء المشهد (هنا مثال لمكعب)
+const geometry = new THREE.BoxGeometry();
+const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+const cube = new THREE.Mesh(geometry, material);
+scene.add(cube);
 
 // إنشاء المُظهر (renderer)
 const renderer = new THREE.WebGLRenderer();
@@ -22,6 +18,8 @@ document.body.appendChild(renderer.domElement);
 // دورة التحديث للرسم
 function animate() {
   requestAnimationFrame(animate);
+  cube.rotation.x += 0.01;
+  cube.rotation.y += 0.01;
   renderer.render(scene, camera);
 }
 animate();
