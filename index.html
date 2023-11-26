@@ -1,24 +1,32 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>تسجيل الدخول - وكالة السفر</title>
-    <link rel="stylesheet" href="styles.css">
+  <title>استمارة حجز السفر</title>
 </head>
 <body>
-    <form action="/login" method="post" class="login-form">
-        <h2>تسجيل الدخول</h2>
-        <div class="form-group">
-            <label for="username">اسم المستخدم:</label>
-            <input type="text" id="username" name="username" required>
-        </div>
-        <div class="form-group">
-            <label for="password">كلمة المرور:</label>
-            <input type="password" id="password" name="password" required>
-        </div>
-        <div class="form-group">
-            <input type="submit" value="تسجيل الدخول">
-        </div>
-    </form>
+
+<h1>نموذج حجز السفر</h1>
+
+<form action="/submit_booking" method="post">
+  <label for="fullname">الاسم الكامل:</label><br>
+  <input type="text" id="fullname" name="fullname"><br>
+  
+  <label for="email">البريد الإلكتروني:</label><br>
+  <input type="email" id="email" name="email"><br>
+  
+  <label for="destination">الوجهة المفضلة:</label><br>
+  <select id="destination" name="destination">
+    <option value="paris">باريس</option>
+    <option value="london">لندن</option>
+    <option value="tokyo">طوكيو</option>
+    <!-- يمكنك إضافة المزيد من الخيارات هنا -->
+  </select><br>
+  
+  <label for="message">رسالة إضافية:</label><br>
+  <textarea id="message" name="message" rows="4" cols="50"></textarea><br>
+  
+  <input type="submit" value="حجز">
+</form>
+
 </body>
 </html>
